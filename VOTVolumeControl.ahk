@@ -1,6 +1,7 @@
 ﻿#SingleInstance ignore
 ;#NoTrayIcon
 #NoEnv
+SetWorkingDir %A_ScriptDir%
 SendMode Input
 
 #Include VMR.ahk/VMR.ahk
