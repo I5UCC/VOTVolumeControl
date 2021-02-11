@@ -32,14 +32,14 @@ Loop {
     else if (leftY <= -0.7) && (leftHandTrigger >= 0.7) && ovrLThumb && down
         voicemeeter.strip[7].gain -= 0.5
 
-    If WinExist("VRChat") && !trigger {
+    If ProcessExist("VRChat.exe") && !ProcessExist("AdvancedSettings.exe") {
         Run, "steam://rungameid/1009850"
-        trigger := True
     }
-    Else {
-        trigger := False
-    }
-
 
     Process, Exist, OculusClient.exe
 } Until !ErrorLevel
+
+ProcessExist(name) {
+    Process, Exist, %name%
+    Return ErrorLevel
+}
